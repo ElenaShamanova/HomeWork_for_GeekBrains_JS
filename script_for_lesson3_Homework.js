@@ -88,4 +88,4 @@ function quotient(integer1, integer2) {
     }
 }
 
-console.log(quotient(15, 5));
+console.log(`Частное чисел равно ${quotient(15, 5)}`);

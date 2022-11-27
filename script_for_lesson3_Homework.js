@@ -52,35 +52,40 @@ function sum(integer1, integer2) {
     return integer1 + integer2;
 }
 
-console.log(sum(2, 6));
+console.log(`Сумма двух и шести равна ${sum(2, 6)}`);
 
 
-// function diff(integer1, integer2) {
-//     if (integer1 == integer2) {
-//         return 0;
-//     } else if (integer2 > integer1) {
-//         return integer2 - integer1
-//     } else {
-//         return integer1 - integer2
-//     }
-// }
+function diff(integer1, integer2) {
+    if (integer1 === integer2) {
+        return 0;
+    } else if (integer2 > integer1) {
+        return integer2 - integer1
+    } else {
+        return integer1 - integer2
+    }
+}
 
-// console.log(diff(89, 89));
+console.log(`Разность чисел равна ${diff(89, 98)}`);
 
-// function product(integer1, integer2) {
-//     return integer1 * integer2;
-// }
 
-// console.log(product(89, 76));
+function product(integer1, integer2) {
+    if (integer1 === 0 || integer2 === 0) {
+        return 0;
+    } else {
+        return integer1 * integer2;
+    }
+}
 
-// function quotient(integer1, integer2) {
-//     if (integer1 == 0 || integer2 == 0) {
-//         return 'На ноль делить нельзя';
-//     } else if (integer2 > integer1) {
-//         return integer2 / integer1;
-//     } else {
-//         return integer1 / integer2;
-//     }
-// }
+console.log(`Произведение чисел равно ${product(89, 76)}`);
 
-// console.log(quotient(15, 5));
+function quotient(integer1, integer2) {
+    if (integer1 === 0 || integer2 === 0) {
+        return 'На ноль делить нельзя';
+    } else if (integer2 > integer1) {
+        return integer2 / integer1;
+    } else {
+        return integer1 / integer2;
+    }
+}
+
+console.log(quotient(15, 5));

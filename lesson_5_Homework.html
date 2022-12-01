@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // Дан объект numbers. Необходимо в консоль вывести все значения больше или равные 3.
+
+        const numbers = {
+            keyin1: 1,
+            keyin2: 2,
+            keyin3: 3,
+            keyin4: 4,
+            keyin5: 5,
+            keyin6: 6,
+            keyin7: 7,
+        };
+
+        function findNumberMoreOrEqualTo(object, number) {
+            for (const key in object) {
+                if (object[key] >= number) {
+                    console.log(object[key]);
+                } else {
+                    continue;
+                }
+            }
+        };
+
+        findNumberMoreOrEqualTo(numbers, 3);
+
+
+        // Необходимо из объекта, который лежит в константе post вывести значения, к которым приписан комментарий, в консоль.
+
+        const post = {
+            author: "John", // вывести этот текст
+            postId: 23,
+            comments: [
+                {
+                    userId: 10,
+                    userName: "Alex",
+                    text: "lorem ipsum",
+                    rating: {
+                        likes: 10,
+                        dislikes: 2, // вывести это число
+                    },
+                },
+                {
+                    userId: 5, // вывести это число
+                    userName: "Jane",
+                    text: "lorem ipsum 2", // вывести этот текст
+                    rating: {
+                        likes: 3,
+                        dislikes: 1,
+                    },
+                },
+            ],
+        };
+
+        const authorName = post.author;
+        console.log(authorName);
+
+        const dislikesForAlex = post.comments[0].rating.dislikes;
+        console.log(dislikesForAlex);
+
+        const userIdForJane = post.comments[1].userId;
+        console.log(userIdForJane);
+
+        const textFromUser = post.comments[1].text;
+        console.log(textFromUser);
+
+        // Дан массив products, необходимо цену каждого продукта уменьшить на 15% используя метод forEach.
+
+        const products = [
+            {
+                id: 3,
+                price: 200,
+            },
+            {
+                id: 4,
+                price: 900,
+            },
+            {
+                id: 1,
+                price: 1000,
+            },
+        ];
+
+        products.forEach((element) => {
+            console.log(element.price * 0.85);
+        });
+
+        // Это альтернативный метод, который меняет значение в самом массиве.
+        // const newDiscount = products.map(element => {
+        //     return element.price * 0.85;
+        // });
+
+        // console.log(newDiscount);
+
+
+        //         Необходимо вывести в консоль массив продуктов в котором есть хоть одна фотография используя метод filter. Исходные данные - массив products. Переименован в moreProducts.
+        // Необходимо отсортировать массив products используя метод sort по цене, начиная с самой маленькой, заканчивая самой большой ценой, после чего вывести отсортированный массив в консоль.
+
+        const moreProducts = [
+            {
+                id: 3,
+                price: 127,
+                photos: [
+                    "1.jpg",
+                    "2.jpg",
+                ],
+            },
+            {
+                id: 5,
+                price: 499,
+                photos: [],
+            },
+            {
+                id: 10,
+                price: 26,
+                photos: [
+                    "3.jpg",
+                ],
+            },
+            {
+                id: 8,
+                price: 78,
+            },
+        ];
+
+        const productWithPhotos = moreProducts.filter(element => {
+            return element.hasOwnProperty('photos') && element.photos.length >= 1;
+        });
+        console.log(productWithPhotos);
+
+        const sortedProducts = moreProducts.sort((priceA, priceB) => priceA.price - priceB.price);
+        console.log(sortedProducts);
+
+
+        // Дано 2 массива
+        // Вам необходимо объединить 2 этих массива, чтобы значения первого массива были ключами, а значения второго массива — значениями.
+
+        const en = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+        const ru = ["понедельник", "вторник", "среда", "четверг", "пятница", "суббота", "воскресенье"];
+
+        function fillObject(key, value) {
+            const newObject = {};
+
+            for (let i = 0; i < key.length; i++) {
+                if (key.length == value.length) {
+                    let newObjectKeys = key[i];
+                    let newObjectValues = value[i];
+                    newObject[newObjectKeys] = newObjectValues;
+                } else {
+                    return 'Размеры вашмх массивов не совпадают';
+                }
+            }
+            return newObject;
+        };
+
+        console.log(fillObject(en, ru));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When bored</title>
+    <style>
+        .activity__content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="activity__content">
+
+    </div>
+
+
+    <script src="./data.js"></script>
+    <script>
+        const projectData = JSON.parse(request);
+
+        const mainDivElement = document.querySelector('.activity__content');
+        mainDivElement.style.fontFamily = 'Charcoal, sans-serif';
+
+
+        projectData.forEach(element => {
+            const activityElement = document.createElement('div');
+            activityElement.classList.add('activity__section');
+
+            activityElement.style.border = '2px solid green'
+            activityElement.style.width = '300px';
+            activityElement.style.textAlign = 'center';
+            activityElement.style.backgroundColor = 'yellow';
+            activityElement.style.padding = '10px';
+
+            const activityTitle = document.createElement('h4');
+            activityTitle.classList.add('activity__type_title');
+
+            const activityDescription = document.createElement('p');
+            activityDescription.classList.add('activity__description');
+
+            const activityPrice = document.createElement('p');
+            activityPrice.classList.add('activity__price');
+
+            const activityParticipants = document.createElement('p');
+            activityParticipants.classList.add('activity__participants');
+
+            activityDescription.style.fontFamily = 'Impact, Charcoal, sans-serif';
+            activityParticipants.style.fontSize = '0.9rem';
+
+            activityTitle.textContent = element.type[0].toUpperCase() + element.type.substring(1);
+            activityDescription.textContent = element.activity;
+            activityPrice.textContent = 'It will cost you ' + element.price;
+            activityParticipants.textContent = 'The number of participants required for this activity: ' + element.participants;
+
+
+            mainDivElement.appendChild(activityElement);
+            activityElement.appendChild(activityTitle);
+            activityElement.appendChild(activityDescription);
+            activityElement.appendChild(activityPrice);
+            activityElement.appendChild(activityParticipants);
+
+        });
+
+
+    </script>
+</body>
+
+</html>

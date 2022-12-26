@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Open+Sans:wght@600;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="home__page">
+        <section class="products center">
+            <div class="products__top">
+                <h2 class="products__title">Featured Items</h2>
+                <h4 class="products__subtitle">Shop for items based on what we featured in this week</h4>
+            </div>
+
+        </section>
+    </div>
+    <script src="./json/data.js"></script>
+    <script>
+        const productsDataObject = JSON.parse(productsData);
+        const productsElement = document.querySelector('.products');
+
+        const productsContent = document.createElement('div');
+        const productsList = document.createElement('ul');
+
+        productsContent.classList.add('products__content');
+        productsList.classList.add('products__list');
+
+        productsContent.appendChild(productsList);
+        productsElement.appendChild(productsContent);
+
+        productsDataObject.forEach(element => {
+            const productsSublist = document.createElement('li');
+            const articleElement = document.createElement('article');
+            const productsImage = document.createElement('div');
+            const productsDescription = document.createElement('div');
+            const productImgLink = document.createElement('a');
+            const productImage = document.createElement('img');
+            const productTitle = document.createElement('h3');
+            const productDetails = document.createElement('p');
+            const productPrice = document.createElement('p');
+
+            productsSublist.classList.add('products__sublist');
+            articleElement.classList.add('products__card');
+            productsImage.classList.add('products__image');
+            productsDescription.classList.add('products__description');
+            productImgLink.classList.add('product__img_link');
+            productImage.classList.add('product__img');
+            productTitle.classList.add('product__title');
+            productDetails.classList.add('product__details');
+            productPrice.classList.add('price');
+
+            productImgLink.href = '#';
+            productImage.src = element.image;
+            productImage.alt = element.alt;
+            productImage.width = element.width;
+            productImage.height = element.height;
+            productTitle.textContent = element.productTitle;
+            productDetails.textContent = element.details;
+            productPrice.textContent = element.price;
+
+            productsList.appendChild(productsSublist);
+            productsSublist.appendChild(articleElement);
+            articleElement.appendChild(productsImage);
+            articleElement.appendChild(productsDescription);
+            productImgLink.appendChild(productImage);
+            productsImage.appendChild(productImgLink);
+            productsDescription.appendChild(productTitle);
+            productsDescription.appendChild(productDetails);
+            productsDescription.appendChild(productPrice);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.center {
+    padding-left: calc(50% - 800px);
+    padding-right: calc(50% - 800px);
+}
+body {
+    min-height: 100vh;
+}
+.products {
+    margin-top: 96px;
+}
+.products__top {
+    margin: 0 auto;
+    text-align: center;
+}
+.products__title {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    color: #222222;
+}
+.products__subtitle {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #9F9F9F;
+}
+.products__list {
+    list-style: none;
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 360px);
+    gap: 30px;
+    justify-content: center;
+}
+/* .product__img_link {
+    display: block;
+} */
+.products__sublist {
+    position: relative;
+}
+.products__sublist:hover .products__image::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(58, 56, 56, 0.86);
+    top: 0;
+    left: 0;
+}
+.products__card {
+    display: block;
+    max-width: 360px;
+    width: 100%;
+    min-height: 581px;
+}
+.product__img {
+    display: block;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+.products__description {
+    background: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 24px 16px;
+    gap: 16px;
+}
+.product__title {
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #000000;
+}
+.product__details {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 17px;
+    color: #5D5D5D;
+}
+.price {
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #F16D7F;
+}
